@@ -4,13 +4,17 @@ const Manager = require("./lib/Manager.js");
 
 const generator = require("./src/generator.js");
 
+const path = require("path");
+const output = path.resolve("output");
+const outputJoiner = path.join(output, "profile.html")
+
 const inquirer = require("inquirer");
 const fs = require("fs");
 
 const teamArray = [];
 
 function start () {
-    function generateTeam () {
+    function teamCreator () {
         inquirer.createPromptModule(
             [{
                 type: "roster",
@@ -65,7 +69,7 @@ function start () {
                 answers.internsSchool
                 );
             teamArray.push(intern);
-            generateTeam();
+            teamCreator();
         });
     }
 
@@ -99,7 +103,7 @@ function start () {
                 answers.engieGithub
                 );
             teamArray.push(engineer);
-            generateTeam();
+            teamCreator();
         });
     }
 
@@ -133,16 +137,16 @@ function start () {
                 answers.managerOffice
                 );
             teamArray.push(manager);
-            generateTeam();
+            teamCreator();
         });
     }
 
 
     function addHTML() {
         console.log("A team has been generated.")
-        fs.writeFileSync(generator(teamArray))
+        fs.writeFileSync(outputJoiner, generator(teamArray), "utf-8")
     }
-    generateTeam();
+    teamCreator();
 }
 
 start();
