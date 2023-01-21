@@ -44,7 +44,7 @@ const generator = team => {
                     <ul class="list-group">
                         <li>ID: ${manager.getId()}</li>
                         <li>Email: ${manager.getEmail()}</li>
-                        <li>Office Number: ${manager.getOffice()}</li>
+                        <li>Office Number: ${manager.getOfficeNumber()}</li>
                     </ul>
                 </div>
             </div>
@@ -58,7 +58,7 @@ const generator = team => {
         .map(intern => createIntern(intern))
     );
     htmlArray.push(team
-        .filter(employee => employee.getRole() === "Emgineer")
+        .filter(employee => employee.getRole() === "Engineer")
         .map(engineer => createEngineer(engineer))
         .join("")
     );
@@ -103,5 +103,5 @@ module.exports = team => {
         </div>
     </body>
     </html>
-    `
+    `;
 };

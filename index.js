@@ -5,8 +5,8 @@ const Manager = require("./lib/Manager.js");
 const generator = require("./src/generator.js");
 
 const path = require("path");
-const output = path.resolve("output");
-const outputJoiner = path.join(output, "profile.html")
+const output = path.resolve("dist");
+const outputJoiner = path.join(output, "profile.html");
 
 const inquirer = require("inquirer");
 const fs = require("fs");
@@ -15,20 +15,21 @@ const teamArray = [];
 
 function start () {
     function teamCreator () {
-        inquirer.createPromptModule(
+        inquirer.prompt(
             [{
                 type: "roster",
                 message: "Please choose the type of employee that you would like to add.",
                 name: "employmentPrompt",
-                choices: ["Intern", "Engineer", "Manager", "Finish Picking."]
+                choices: ["Intern", "Engineer", "Manager", "Done"]
             }]
+            
         ).then(function (userInput) {
             switch(userInput.employmentPrompt) {
                 case "Intern":
                     addIntern();
                     break;
                 case "Engineer":
-                    addEngie();
+                    addEngineer();
                     break;
                 case "Manager":
                     addManager();
@@ -63,7 +64,7 @@ function start () {
             }
         ]).then(answers => {
             const intern = new Intern(
-                ansewrs.internsName, 
+                answers.internsName, 
                 answers.internsId,
                 answers.inetrnsEmail,
                 answers.internsSchool
@@ -73,34 +74,34 @@ function start () {
         });
     }
 
-    function addEngie() {
+    function addEngineer() {
         inquirer.prompt([
             {
                 type: "input",
-                name: "engieName",
+                name: "engineerName",
                 message: "Please enter the engineer's name.",
             },
             {
                 type: "input",
-                name: "engieId",
+                name: "engineerId",
                 message: "Please enter the engineer's ID."
             },
             {
                 type: "input",
-                name: "engieEmail",
+                name: "engineerEmail",
                 message: "Please enter the engineer's email."
             },
             {
                 type: "input",
-                name: "engieGithub",
+                name: "engineerGithub",
                 message: "Please enter the engineers Github."
             }
         ]).then(answers => {
             const engineer = new Engineer(
-                ansewrs.engieName, 
-                answers.engieId,
-                answers.engieEmail,
-                answers.engieGithub
+                answers.engineerName, 
+                answers.engineerId,
+                answers.engineerEmail,
+                answers.engineerGithub
                 );
             teamArray.push(engineer);
             teamCreator();
@@ -131,7 +132,7 @@ function start () {
             }
         ]).then(answers => {
             const manager = new Manager(
-                ansewrs.managerName, 
+                answers.managerName, 
                 answers.managerId,
                 answers.managerEmail,
                 answers.managerOffice

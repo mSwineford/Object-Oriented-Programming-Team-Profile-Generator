@@ -5,6 +5,11 @@ test("Tests the managers office number", () => {
     const addEmployee = new Manager("Matthew", 7, "m.swineford@yahoo.com", officeTest);
     expect(addEmployee.officeNumber).toBe(officeTest);
 });
+test("Gets the Office Number", () => {
+    const officeTest = 7;
+    const addEmployee = new Manager("Matthew", 7, "m.swineford@yahoo.com", officeTest);
+    expect(addEmployee.getOfficeNumber()).toBe(officeTest);
+});
 test("Retreves the role.", () => {
     const returnedValue = "Manager";
     const addEmployee = new Manager("Matthew", 7, "m.swineford@yahoo.com", 4);
