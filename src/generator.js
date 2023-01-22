@@ -2,15 +2,15 @@ const generator = team => {
     const createIntern = intern => {
         return `
             <div class="card card-intern">
-                <div class="card-header">
+                <div class="intern-card-header">
                     <h3 class="card-title">${intern.getName()}</h3>
                     <h4 class="card-title">${intern.getRole()}</h4>
                 </div>
-                <div class="card-body">
+                <div class="intern-card-body">
                     <ul class="list-group">
-                        <li>ID: ${intern.getId()}</li>
-                        <li>Email: ${intern.getEmail()}</li>
-                        <li>School: ${intern.getSchool()}</li>
+                        <p>ID: ${intern.getId()}</p>
+                        <p>Email: ${intern.getEmail()}</p>
+                        <p>School: ${intern.getSchool()}</p>
                     </ul>
                 </div>
             </div>
@@ -19,15 +19,15 @@ const generator = team => {
     const createEngineer = engineer => {
         return`
             <div class="card card-engineer">
-                <div class="card-header">
+                <div class="eng-card-header">
                     <h3 class="card-title">${engineer.getName()}</h3>
                     <h4 class="card-title">${engineer.getRole()}</h4>
                 </div>
-                <div class="card-body">
+                <div class="eng-card-body">
                     <ul class="list-group">
-                        <li>ID: ${engineer.getId()}</li>
-                        <li>Email: ${engineer.getEmail()}</li>
-                        <li>Github: ${engineer.getGithub()}</li>
+                        <p>ID: ${engineer.getId()}</p>
+                        <p>Email: ${engineer.getEmail()}</p>
+                        <p>Github: ${engineer.getGithub()}</p>
                     </ul>
                 </div>
             </div>
@@ -36,15 +36,15 @@ const generator = team => {
     const createManager = manager => {
         return`
             <div class="card card-manager">
-                <div class="card-header">
+                <div class="manager-card-header">
                     <h3 class="card-title">${manager.getName()}</h3>
                     <h4 class="card-title">${manager.getRole()}</h4>
                 </div>
-                <div class="card-body">
+                <div class="manager-card-body">
                     <ul class="list-group">
-                        <li>ID: ${manager.getId()}</li>
-                        <li>Email: ${manager.getEmail()}</li>
-                        <li>Office Number: ${manager.getOfficeNumber()}</li>
+                        <p>ID: ${manager.getId()}</p>
+                        <p>Email: ${manager.getEmail()}</p>
+                        <p>Office Number: ${manager.getOfficeNumber()}</p>
                     </ul>
                 </div>
             </div>
@@ -81,6 +81,7 @@ module.exports = team => {
             rel="stylesheet"
             href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         />
+        <link rel="stylesheet" href="styles.css">
         <title>Team Profile</title>
     </head>
         
