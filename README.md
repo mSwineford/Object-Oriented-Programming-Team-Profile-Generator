@@ -7,6 +7,10 @@ This is a program that allows the user to select a role(s) and form a team with 
 ## Video Walkthrough
 https://drive.google.com/file/d/19Fg5EukuAkKzmLCf7_Ex-ly5W_gVmQXk/view
 
+## Screenshot
+
+![what it looks like](assets/TeamProfileScreenshot.png)
+
 ## Your Task
 
 Your task is to build a Node.js command-line application that takes in information about employees on a software engineering team, then generates an HTML webpage that displays summaries for each person. Testing is key to making code maintainable, so you’ll also write a unit test for every part of your code and ensure that it passes each test.
